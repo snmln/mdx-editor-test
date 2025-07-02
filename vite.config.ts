@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-
 import path from "path";
 
 export default defineConfig({
@@ -14,7 +13,7 @@ export default defineConfig({
       formats: ["es", "umd"],
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime", "next/link"],
+      external: ["react", "react-dom", "react/jsx-runtime", "next/link", "styled-components", "focus-trap-react"],
 
       output: {
         globals: {
@@ -22,6 +21,8 @@ export default defineConfig({
           "react-dom": "ReactDOM",
           "react/jsx-runtime": "ReactJSXRuntime",
           "next/link": "next/link",
+          "styled-components": "styled",
+          "focus-trap-react": "FocusTrapReact"
         },
         exports: "named",
       },
