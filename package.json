@@ -1,0 +1,83 @@
+{
+  "name": "mdx-editor-test",
+  "version": "0.0.9",
+  "description": "this is a test",
+  "license": "ISC",
+  "author": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "commonjs",
+  "main": "./dist/mdx-editor-test.mjs",
+  "module": "./dist/mdx-editor-test.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/mdx-editor-test.mjs",
+      "require": "./dist/mdx-editor-test.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build"
+  },
+  "resolutions": {
+    "@types/react": "18.2.8"
+  },
+  "dependencies": {
+    "@lexical/clipboard": "0.23.1",
+    "@lexical/code": "0.23.1",
+    "@lexical/devtools-core": "0.23.1",
+    "@lexical/dragon": "0.23.1",
+    "@lexical/hashtag": "0.23.1",
+    "@lexical/history": "0.23.1",
+    "@lexical/html": "0.23.1",
+    "@lexical/link": "0.23.1",
+    "@lexical/list": "0.23.1",
+    "@lexical/mark": "0.23.1",
+    "@lexical/markdown": "0.23.1",
+    "@lexical/offset": "0.23.1",
+    "@lexical/overflow": "0.23.1",
+    "@lexical/plain-text": "0.23.1",
+    "@lexical/react": "0.23.1",
+    "@lexical/rich-text": "0.23.1",
+    "@lexical/selection": "0.23.1",
+    "@lexical/table": "0.23.1",
+    "@lexical/text": "0.23.1",
+    "@lexical/utils": "0.23.1",
+    "@lexical/yjs": "0.23.1",
+    "@mdx-js/mdx": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@mdxeditor/editor": "^3.25.0",
+    "@realm/react": "^0.11.0",
+    "@teamimpact/veda-ui": "^6.1.1",
+    "@trussworks/react-uswds": "^9.0.0",
+    "@types/node": "20.11.17",
+    "@types/react": "18.2.55",
+    "@types/react-dom": "18.2.19",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "@uswds/compile": "^1.1.0",
+    "@uswds/uswds": "^3.10.0",
+    "lexical": "0.23.1",
+    "markdown-it": "^14.1.0",
+    "mdast": "^3.0.0",
+    "next-mdx-remote": "^5.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "^10.0.1",
+    "realm": "^12.14.2",
+    "remark-breaks": "^4.0.0",
+    "remark-gfm": "^4.0.1",
+    "rollup": "^4.44.0",
+    "sugar-high": "^0.9.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.19",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.9"
+  }
+}
