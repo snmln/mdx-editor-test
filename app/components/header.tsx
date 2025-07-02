@@ -9,7 +9,7 @@ import {
   EXPLORATION_PATH,
   STORY_HUB_PATH,
 } from 'app/config';
-import VedaUIConfigProvider from 'app/store/providers/veda-ui-config';
+import VedaUIConfigProvider from '@app/store/providers/veda-ui-config';
 
 export const navItems: NavItem[] = [
   {

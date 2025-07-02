@@ -3,9 +3,9 @@
 import React from "react";
 
 import { transformToVedaData } from "@app/content/utils/data";
-import DataProvider from "../../../store/providers/data";
-import VedaUIConfigProvider from "../../../store/providers/veda-ui-config";
-import DevseedUIThemeProvider from "../../../store/providers/theme";
+import DataProvider from "@app/store/providers/data";
+import VedaUIConfigProvider from "@app/store/providers/veda-ui-config";
+import DevseedUIThemeProvider from "@app/store/providers/theme";
 import { DatasetWithContent } from "@app/types/content";
 import { Chart } from "@lib";
 
