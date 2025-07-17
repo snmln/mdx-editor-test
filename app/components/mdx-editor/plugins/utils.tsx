@@ -1,12 +1,12 @@
-import { ElementNode } from 'lexical';
+import { ElementNode } from "lexical";
 //BREAD CRUMBS:
 // Need to reserialize the components into <block<prose> structure
 // You can do so either through string manipulation, but want to keept hat in the back pocket for the time being
-// 
-// Should go through the lexical node functionality and create groups based off how that is handled. 
+//
+// Should go through the lexical node functionality and create groups based off how that is handled.
 export class BlockNode extends ElementNode {
   static getType() {
-    return 'block';
+    return "block";
   }
 
   static clone(node) {
@@ -14,8 +14,8 @@ export class BlockNode extends ElementNode {
   }
 
   createDOM() {
-    const dom = document.createElement('div');
-    dom.classList.add('block-container'); // Add any necessary styling
+    const dom = document.createElement("div");
+    dom.classList.add("block-container"); // Add any necessary styling
     return dom;
   }
 
@@ -26,7 +26,7 @@ export class BlockNode extends ElementNode {
 
 export class ProseNode extends ElementNode {
   static getType() {
-    return 'prose';
+    return "prose";
   }
 
   static clone(node) {
@@ -34,8 +34,8 @@ export class ProseNode extends ElementNode {
   }
 
   createDOM() {
-    const dom = document.createElement('div');
-    dom.classList.add('prose-content'); // Add any necessary styling
+    const dom = document.createElement("div");
+    dom.classList.add("prose-content"); // Add any necessary styling
     return dom;
   }
 

@@ -7,7 +7,7 @@ import { customComponents } from "./components";
 import { ChartWrapper } from "./ChartPreview";
 import { DEFAULT_MAP_PROPS } from "./ToolbarComponents";
 import { highlight } from "sugar-high";
-import Link from "next/link";
+// import Link from "next/link";
 import { ClientMapBlock } from "./MapPreview";
 import {
   Block,
@@ -151,7 +151,7 @@ const components = {
   Caption: Caption,
   Figure: Figure,
   Image: Image,
-  Link: Link,
+  // Link: Link,
   Chapter: Chapter,
   TwoColumn: (props) => {
     return (

@@ -1,7 +1,7 @@
-'use client';
+;
 
 import React from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
 import { LegacyGlobalStyles } from '@lib';
@@ -102,7 +102,7 @@ const components = {
   Map: EnhancedMapBlock,
   CompareImage: CompareImage,
   ScrollytellingBlock: EnhancedScrollyTellingBlock,
-  Link: Link,
+  // Link: Link,
   Chapter: Chapter,
   Chart: Chart,
 };

@@ -1,4 +1,4 @@
-'use client';
+;
 
 import React, { createContext, useContext } from 'react';
 import { LexicalEditor, LexicalNode } from 'lexical';

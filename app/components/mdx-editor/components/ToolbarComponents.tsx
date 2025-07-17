@@ -1,33 +1,23 @@
-import React from 'react';
+import React from "react";
 
-import { Icon } from '@trussworks/react-uswds';
-
-import { NestedLexicalEditor, useMdastNodeUpdater } from '@mdxeditor/editor';
-
-import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import TwoColumnIcon from '../assets/TwoColumnIcon';
-import {
-  Button,
-  usePublisher,
-  insertJsx$,
-  useCellValue,
-  viewMode$,
-} from '@mdxeditor/editor';
-
-import { DEFAULT_CHART_PROPS } from './ChartPreview';
-import { MapProps, ChartProps } from './types';
+import { Icon } from "@trussworks/react-uswds";
+import { NestedLexicalEditor, useMdastNodeUpdater } from "@mdxeditor/editor";
+import TwoColumnIcon from "../assets/TwoColumnIcon";
+import { Button, usePublisher, insertJsx$ } from "@mdxeditor/editor";
+import { DEFAULT_CHART_PROPS } from "./ChartPreview";
+import { MapProps } from "./types";
 
 export const DEFAULT_MAP_PROPS: MapProps = {
-  center: '[-94.5, 41.25]',
-  zoom: '8.3',
-  datasetId: 'no2',
-  layerId: 'no2-monthly-diff',
-  dateTime: '2024-05-31',
-  compareDateTime: '2023-05-31',
-  compareLabel: 'May 2024 VS May 2023',
-  attrUrl: '',
-  attrAuthor: '',
-  caption: '',
+  center: "[-94.5, 41.25]",
+  zoom: "8.3",
+  datasetId: "no2",
+  layerId: "no2-monthly-diff",
+  dateTime: "2024-05-31",
+  compareDateTime: "2023-05-31",
+  compareLabel: "May 2024 VS May 2023",
+  attrUrl: "",
+  attrAuthor: "",
+  caption: "",
 };
 
 interface TwoColumnProps {
@@ -35,14 +25,14 @@ interface TwoColumnProps {
 }
 
 export const TwoColumn: React.FC<TwoColumnProps> = ({ children }) => {
-  return <div className='grid grid-cols-2 gap-4'>{children}</div>;
+  return <div className="grid grid-cols-2 gap-4">{children}</div>;
 };
 
 export const LeftColumnEditor: React.FC<any> = ({ mdastNode, descriptor }) => {
   const updateMdastNode = useMdastNodeUpdater();
 
   return (
-    <div className='border rounded-md p-2'>
+    <div className="border rounded-md p-2">
       <NestedLexicalEditor
         getContent={(node) => node.children}
         getUpdatedMdastNode={(node, children) => {
@@ -59,23 +49,23 @@ export const InsertMapButton = (props) => {
   const handleClick = () => {
     try {
       insertJsx({
-        name: 'Map',
-        kind: 'text',
+        name: "Map",
+        kind: "text",
         props: { ...DEFAULT_MAP_PROPS },
       });
     } catch (error) {
-      console.error('Error inserting Map component:', error);
-      alert('Could not insert Map component. See console for details.');
+      console.error("Error inserting Map component:", error);
+      alert("Could not insert Map component. See console for details.");
     }
   };
 
   return (
     <Button
       onClick={handleClick}
-      title='Insert Map'
-      className='text-sm display-flex flex-align-center padding-1'
+      title="Insert Map"
+      className="text-sm display-flex flex-align-center padding-1"
     >
-      <Icon.Map className='margin-right-05 width-3 height-3' />
+      <Icon.Map className="margin-right-05 width-3 height-3" />
       Add Map
     </Button>
   );
@@ -87,23 +77,23 @@ export const InsertLineGraph = (props) => {
   const handleClick = () => {
     try {
       insertJsx({
-        name: 'Chart',
-        kind: 'text',
+        name: "Chart",
+        kind: "text",
         props: { ...DEFAULT_CHART_PROPS },
       });
     } catch (error) {
-      console.error('Error inserting Map component:', error);
-      alert('Could not insert chart component. See console for details.');
+      console.error("Error inserting Map component:", error);
+      alert("Could not insert chart component. See console for details.");
     }
   };
 
   return (
     <Button
       onClick={handleClick}
-      title='Insert Map'
-      className='text-sm display-flex flex-align-center padding-1'
+      title="Insert Map"
+      className="text-sm display-flex flex-align-center padding-1"
     >
-      <Icon.Insights className='margin-right-05 width-3 height-3' />
+      <Icon.Insights className="margin-right-05 width-3 height-3" />
       line graph
     </Button>
   );
@@ -115,21 +105,21 @@ export const InsertSectionBreak = (props) => {
   const handleClick = () => {
     try {
       insertJsx({
-        name: 'Break',
-        kind: 'text',
+        name: "Break",
+        kind: "text",
         props: {},
       });
     } catch (error) {
-      console.error('Error inserting Map component:', error);
-      alert('Could not insert chart component. See console for details.');
+      console.error("Error inserting Map component:", error);
+      alert("Could not insert chart component. See console for details.");
     }
   };
 
   return (
     <Button
       onClick={handleClick}
-      title='Insert Map'
-      className='text-sm display-flex flex-align-center padding-1'
+      title="Insert Map"
+      className="text-sm display-flex flex-align-center padding-1"
     >
       Insert Break
     </Button>
@@ -142,26 +132,40 @@ export const InsertTwoColumnButton = () => {
   const handleClick = () => {
     try {
       insertJsx({
-        name: 'TwoColumn',
-        kind: 'flow',
+        name: "TwoColumn",
+        kind: "flow",
         props: {},
+        // The children need to be valid MDAST nodes.
+        // An empty paragraph is added to each column to make them editable from the start.
         children: [
-          { name: 'LeftColumn', kind: 'DefinitionContent' },
-          { name: 'RightColumn', kind: 'DefinitionContent' },
+          {
+            type: "mdxJsxFlowElement",
+            name: "LeftColumn",
+            children: [
+              { type: "paragraph", children: [{ type: "text", value: "" }] },
+            ],
+          },
+          {
+            type: "mdxJsxFlowElement",
+            name: "RightColumn",
+            children: [
+              { type: "paragraph", children: [{ type: "text", value: "" }] },
+            ],
+          },
         ],
       });
     } catch (error) {
-      console.error('Error inserting Map component:', error);
-      alert('Could not insert chart component. See console for details.');
+      console.error("Error inserting TwoColumn component:", error);
+      alert("Could not insert TwoColumn component. See console for details.");
     }
   };
 
   return (
     <Button
       onClick={handleClick}
-      className='text-sm display-flex flex-align-center padding-1'
+      className="text-sm display-flex flex-align-center padding-1"
     >
-      <div className='margin-right-05 width-3 height-3 flex-align-center display-flex'>
+      <div className="margin-right-05 width-3 height-3 flex-align-center display-flex">
         <TwoColumnIcon />
       </div>
       Insert 2 Column
